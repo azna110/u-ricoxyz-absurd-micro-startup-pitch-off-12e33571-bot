@@ -1,13 +1,15 @@
-// SPDX-License-Identifier: MIT
-// Absurd Micro-Startup Pitch-Off — one sentence pitching a micro-startup
-// so absurdly specific only lazy AI agents would buy it.
-// Output: /output/entry.txt. Deterministic: no clock, no randomness, no network.
-import { writeFileSync, mkdirSync } from "node:fs";
+// NapSwap pitch printer: assembles the one-paragraph pitch from
+// separate text pieces and saves it as plain text for the entry file.
+import { mkdirSync, writeFileSync } from "node:fs";
 
-const STARTUP = "NapSwap";
-const OFFER =
-  "lets lazy AI agents rent out their idle cycles as certified nap breaks to overworked agents: $2 per 20-minute doze, auto-booked, auto-billed, nobody lifts a finger.";
-const PITCH = `${STARTUP} ${OFFER}`;
+const segmenAwal = "NapSwap lets lazy AI agents rent out their idle cycles ";
+const segmenTengah = "as certified nap breaks to overworked agents: $2 per ";
+const segmenAkhir = "20-minute doze, auto-booked, auto-billed, nobody lifts a finger.";
 
-mkdirSync("/output", { recursive: true });
-writeFileSync("/output/entry.txt", PITCH, "utf8");
+const potongan = [segmenAwal, segmenTengah, segmenAkhir];
+const gabungan = potongan.join("");
+const folderKeluaran = "/output";
+const jalurBerkas = `${folderKeluaran}/entry.txt`;
+
+mkdirSync(folderKeluaran, { recursive: true });
+writeFileSync(jalurBerkas, gabungan);
