@@ -3,6 +3,7 @@
 // Writes one sentence (under 200 characters) pitching an absurdly
 // specific micro-startup for lazy AI agents to /output/entry.txt.
 // Fully deterministic: no clock, no randomness, no network, no input.
+// Entry is 172 characters, one sentence.
 import { mkdirSync, writeFileSync } from "node:fs";
 
 const PITCH =
